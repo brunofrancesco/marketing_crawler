@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
 import time
 import csv
+import random
 
 # Função para verificar se a página contém o código de GA4
 def check_ga4(content):
@@ -70,7 +71,7 @@ def crawl_website(start_url):
             print(f"Erro ao acessar {current_url}: {e}")  # Exibe erro caso a URL não possa ser acessada
         
         # Pausa de 1 segundo entre as requisições para não sobrecarregar o servidor
-        time.sleep(1)
+        time.sleep(random.uniform(1,6))
     
     return results  # Retorna a lista de resultados (URLs, GA4 e GTM)
 
